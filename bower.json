@@ -1,0 +1,21 @@
+{
+  "name": "ip1",
+  "description": "github information",
+  "main": "index.html",
+  "authors": [
+    "collins"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/Collins33/ADDRESSBOOK",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.2.1"
+  }
+}
