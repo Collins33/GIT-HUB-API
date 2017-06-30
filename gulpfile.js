@@ -3,6 +3,8 @@ var browserify = require('browserify');
 var source = require('vinyl-source-stream');
 var jshint = require('gulp-jshint');
 var uglify=require('gulp-uglify');
+var utilities=require('gulp-util');
+var buildProduction = utilities.env.production;
 
 
 gulp.task('jshint', function(){
@@ -26,4 +28,11 @@ gulp.task('uglify',['browserify'],function(){
   return gulp.src("./build/js/app.js")
     .pipe(uglify())
     .pipe(gulp.dest("./build/js"));
-})
+});
+gulp.task("build", function(){
+  if (buildProduction) {
+    gulp.start('uglify');
+  } else {
+    gulp.start('browserify');
+  }
+});
