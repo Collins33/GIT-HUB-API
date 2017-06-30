@@ -8,6 +8,6 @@ $(document).ready(function(){
     event.preventDefault();
     var users=$('input#user').val();
     $('input#user').val("");
-    newUser.giveInfo(users);
+     newUser.giveInfo(users);
   });
 });
