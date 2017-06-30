@@ -2,25 +2,35 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <!-- jquery file -->
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- minified js file -->
     <script type="text/javascript" src="build/js/app.js"></script>
     <title>GITHUB LOOKUP</title>
   </head>
   <body>
     <form class="githubform">
+      <!-- form to enter github username -->
       <label for="username">ENTER GITHUB USERNAME</label>
       <input id="user" type="text"/>
       <button>GET INFO</button>
     </form>
     <div class="image">
-
+      <!-- user image appears here -->
     </div>
     <div class="showname">
+      <!-- github username -->
     </div>
 
-    <div class="showurl"></div>
-    <div class="reponumbers"></div>
-    <div class="creationdate"></div>
+    <div class="showurl">
+      <!-- github url -->
+    </div>
+    <div class="reponumbers">
+      <!-- number of public repositories -->
+    </div>
+    <div class="creationdate">
+      <!-- date the repo was made -->
+    </div>
     <div class="update"></div>
   </body>
 </html>

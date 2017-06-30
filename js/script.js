@@ -1,13 +1,13 @@
 var apikey =require('./../.env').apikey;
-
-
+// constructor for github object
 function Github(){
 
 }
-
+// prototype for getting response from github
 Github.prototype.giveInfo=function(users){
   $.get('https://api.github.com/users/'+ users +'?access_token=' + apikey).then(function(response){
     console.log(JSON.stringify(response));
+    // display the user information
     $('.image').html('<img src="'+response.avatar_url+'">');
     $('.showname').text(response.login);
     $('.showurl').text(response.html_url);
@@ -19,4 +19,5 @@ Github.prototype.giveInfo=function(users){
   });
   $('.show').text(users);
 };
+// exporting module to the userinterface
 exports.gitModule= Github;
