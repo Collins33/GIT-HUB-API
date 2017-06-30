@@ -4,6 +4,8 @@ var source = require('vinyl-source-stream');
 var jshint = require('gulp-jshint');
 var uglify=require('gulp-uglify');
 var utilities=require('gulp-util');
+var del = require('del');
+
 var buildProduction = utilities.env.production;
 
 
@@ -29,7 +31,10 @@ gulp.task('uglify',['browserify'],function(){
     .pipe(uglify())
     .pipe(gulp.dest("./build/js"));
 });
-gulp.task("build", function(){
+gulp.task('clean',function(){
+  return del(['build', 'tmp']);
+});
+gulp.task("build",['clean'], function(){
   if (buildProduction) {
     gulp.start('uglify');
   } else {
