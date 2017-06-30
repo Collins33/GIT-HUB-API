@@ -6,6 +6,7 @@ var jshint = require('gulp-jshint');
 var uglify=require('gulp-uglify');
 var utilities=require('gulp-util');
 var del = require('del');
+var browserSync = require('browser-sync').create();
 
 var buildProduction = utilities.env.production;
 
@@ -43,4 +44,18 @@ gulp.task("build",['clean'], function(){
   } else {
     gulp.start('browserify');
   }
+});
+gulp.task('serve', function() {
+  browserSync.init({
+    server: {
+      baseDir: "./",
+      index: "index.html"
+    }
+  });
+  gulp.watch(['js/*.js'], ['jsBuild']);
+  
+
+});
+gulp.task('jsBuild', ['browserify', 'jshint'], function(){
+  browserSync.reload();
 });
