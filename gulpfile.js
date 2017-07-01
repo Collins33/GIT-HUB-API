@@ -7,6 +7,7 @@ var uglify=require('gulp-uglify');
 var utilities=require('gulp-util');
 var del = require('del');
 var browserSync = require('browser-sync').create();
+var lib = require('bower-files')();
 
 var buildProduction = utilities.env.production;
 
@@ -37,7 +38,13 @@ gulp.task('uglify',['browserify'],function(){
 gulp.task('clean',function(){
   return del(['build', 'tmp']);
 });
-// Change heading
+gulp.task('bowerjs',function(){
+  return gulp.src(lib.ext('js').files)
+  .pipe(uglify('vendor.min.js'))
+  
+  .pipe(gulp.dest('./build/js'));
+});
+
 gulp.task("build",['clean'], function(){
   if (buildProduction) {
     gulp.start('uglify');
@@ -53,7 +60,7 @@ gulp.task('serve', function() {
     }
   });
   gulp.watch(['js/*.js'], ['jsBuild']);
-  
+
 
 });
 gulp.task('jsBuild', ['browserify', 'jshint'], function(){

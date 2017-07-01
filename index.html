@@ -4,17 +4,34 @@
     <meta charset="utf-8">
     <!-- jquery file -->
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
     <!-- minified js file -->
     <script type="text/javascript" src="build/js/app.js"></script>
+    <link rel="stylesheet" href="css/index.css"/>
     <title>GITHUB LOOKUP</title>
   </head>
   <body>
+    <div class='container'>
+      <div class='row'>
+        <div class="col-md-6">
+          <img src="http://www.aha.io/assets/github.7433692cabbfa132f34adb034e7909fa.png" class="img-responsive well well-lg"/>
+
+        </div>
+        <div class="col-md-6">
+        <h1 class="header">GET INFORMATION ON ANY GITHUB USER</h1>
+        </div>
+      </div>
+  <div class="row">
     <form class="githubform">
       <!-- form to enter github username -->
       <label for="username">ENTER GITHUB USERNAME</label>
       <input id="user" type="text"/>
       <button>GET INFO</button>
     </form>
+  </div>
+  <div class="row">
     <div class="image">
       <!-- user image appears here -->
     </div>
@@ -32,5 +49,7 @@
       <!-- date the repo was made -->
     </div>
     <div class="update"></div>
+  </div>
+  </div>
   </body>
 </html>
